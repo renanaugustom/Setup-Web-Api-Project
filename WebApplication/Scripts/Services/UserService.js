@@ -22,7 +22,7 @@
         };
 
         service.isAuthenticated = function () {
-            return !!getCurrentUser();
+            return !!service.getCurrentUser();
         };
     }
 })();

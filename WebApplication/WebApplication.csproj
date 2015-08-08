@@ -77,6 +77,7 @@
     <Content Include="Scripts\Base\app.js" />
     <Content Include="Scripts\Base\routes.js" />
     <Content Include="Scripts\Controllers\AccessDeniedController.js" />
+    <Content Include="Scripts\Services\AlertService.js" />
     <Content Include="Scripts\Controllers\HomeController.js" />
     <Content Include="Scripts\Controllers\LoginController.js" />
     <Content Include="Scripts\Controllers\IndexController.js" />
