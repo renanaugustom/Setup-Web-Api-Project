@@ -1,9 +1,9 @@
 ﻿angular.module('app.controllers', []);
 angular.module('app.services', []);
 
-var app = angular.module("MyApp", ['app.controllers', 'app.services', 'ui.router', 'angular-storage']);
+var app = angular.module("MyApp", ['ui.router', 'angular-storage', 'app.controllers', 'app.services', 'app.routes']);
 
 app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
-    
 
+    $httpProvider.interceptors.push('APIInterceptor');
 });
