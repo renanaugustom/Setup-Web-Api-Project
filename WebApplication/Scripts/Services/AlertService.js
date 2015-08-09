@@ -28,6 +28,10 @@
             $rootScope.alerts.splice(index, 1);
         };
 
+        alertService.cleanAlerts = function (index) {
+            $rootScope.alerts = [];
+        };
+
         return alertService;
     }
 })();

@@ -24,10 +24,11 @@ routes.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,
     $urlRouterProvider.otherwise('/login');
 }]);
 
-routes.run(function ($rootScope, $state, UserService) {
+routes.run(function ($rootScope, $state, UserService, AlertService) {
     //TODO: Verify if user has permission to access the next route
     
     $rootScope.$on('$stateChangeStart', function (event, next, nextParams, fromState) {
+        AlertService.cleanAlerts();
         if (!UserService.isAuthenticated()) {
             if (next.name !== 'login' && next.name !== 'accessdenied') {
                 event.preventDefault();

@@ -2,19 +2,21 @@
     "use strict";
 
     angular.module('app.controllers').controller('LoginCtrl', LoginCtrl);
+    LoginCtrl.$inject = ["$scope", "$rootScope", "$state", "LoginService", "UserService", "AlertService"];
 
-    function LoginCtrl($scope) {
+    function LoginCtrl($scope, $rootScope, $state, LoginService, UserService, AlertService) {
+        $scope.User = {};
 
         $scope.doLogin = function (user) {
-            LoginService.login(user, function (data) {
-                user.access_token = response.data.id;
+            LoginService.login(user).success(function (data) {
+                user.access_token = data.access_token;
                 UserService.setCurrentUser(user);
                 $rootScope.$broadcast('authorized');
-                $state.go('index');
-            }, function (error) {
-                alertService.addError(error.ExceptionMessage ? error.ExceptionMessage : error.Message);
+                $state.go('home');
+            }).error(function (error) {
+                AlertService.addError(error.error_description);
+                $scope.User = {};
             });
         };
-
     }
 })();

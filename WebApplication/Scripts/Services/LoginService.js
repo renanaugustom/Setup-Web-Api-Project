@@ -3,29 +3,24 @@
 
     angular.module('app.services').service('LoginService', LoginService);
 
-    function LoginService($http) {
+    function LoginService($http, AUTHENTICATONSERVER_URI) {
 
-        var service = this,
-            path = 'Users/';
+        var service = this, tokenPath = 'security/token', path = 'User/';
+        var customHeaders = {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        };
 
-        function getUrl() {
-            return ENDPOINT_URI + path;
-        }
-
-        function getLogUrl(action) {
-            return getUrl() + action;
+        function getTokenUrl() {
+            return AUTHENTICATONSERVER_URI + tokenPath;
         }
 
         service.login = function (credentials) {
-            return $http.post(getLogUrl('login'), credentials);
-        };
-
-        service.logout = function () {
-            return $http.post(getLogUrl('logout'));
-        };
-
-        service.register = function (user) {
-            return $http.post(getUrl(), user);
+            var params = {
+                username: credentials.user,
+                password: credentials.password,
+                grant_type: 'password'
+            };
+            return $http.post(getTokenUrl(), $.param(params), { headers: customHeaders });
         };
     }
 })();

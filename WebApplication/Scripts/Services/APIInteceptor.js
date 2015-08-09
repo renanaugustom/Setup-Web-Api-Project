@@ -2,9 +2,9 @@
     "use strict";
 
     angular.module('app.services').service('APIInterceptor', APIInterceptor);
-    APIInterceptor.$inject = ['$rootScope', 'UserService'];
+    APIInterceptor.$inject = ['$rootScope', '$q', 'UserService'];
 
-    function APIInterceptor($rootScope, UserService) {
+    function APIInterceptor($rootScope, $q, UserService) {
 
         var service = this;
 
@@ -13,7 +13,7 @@
                 access_token = currentUser ? currentUser.access_token : null;
 
             if (access_token) {
-                config.headers.authorization = access_token;
+                config.headers.authorization = 'Bearer ' + access_token;
             }
             return config;
         };
@@ -22,7 +22,7 @@
             if (response.status === 401) {
                 $rootScope.$broadcast('unauthorized');
             }
-            return response;
+            return $q.reject(response);
         };
 
     }
