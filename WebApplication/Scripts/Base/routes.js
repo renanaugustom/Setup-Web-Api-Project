@@ -21,7 +21,7 @@ routes.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,
             controllerAs: 'accessdenied'
         });
 
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/home');
 }]);
 
 routes.run(function ($rootScope, $state, UserService, AlertService) {

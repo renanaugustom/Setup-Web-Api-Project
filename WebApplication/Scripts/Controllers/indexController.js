@@ -8,14 +8,16 @@
        
         var index = this;
 
+        $rootScope.onLoginScreen = false;
+
+        $rootScope.setOnLoginScreen = function (onLoginScreen) {
+            $rootScope.onLoginScreen = onLoginScreen;
+        };
+
         function logout() {
-            LoginService.logout()
-                .then(function (response) {
-                    index.currentUser = UserService.setCurrentUser(null);
-                    $state.go('login');
-                }, function (error) {
-                    console.log(error);
-                });
+            //TODO: Call a backend service to invalidate token
+            index.currentUser = UserService.setCurrentUser(null);
+            $state.go('login');
         }
 
         $rootScope.$on('authorized', function () {

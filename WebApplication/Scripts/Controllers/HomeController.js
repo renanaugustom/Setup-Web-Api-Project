@@ -5,6 +5,6 @@
     HomeController.$inject = ['$scope'];
 
     function HomeController($scope) {
-
+        $scope.setOnLoginScreen(false);
     }
 })();
