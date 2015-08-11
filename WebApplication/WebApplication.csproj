@@ -57,6 +57,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\custom.css" />
+    <Content Include="Images\load.gif" />
+    <Content Include="Scripts\Directives\LoadingDirective.js" />
     <Content Include="Scripts\Libs\angular.min.js.map" />
     <Content Include="Scripts\Libs\jquery-1.9.1.min.map" />
     <None Include="Web.Debug.config">
@@ -93,6 +96,7 @@
     <Content Include="Scripts\Libs\jquery-1.9.1.js" />
     <Content Include="Scripts\Libs\jquery-1.9.1.min.js" />
     <Content Include="Scripts\Services\APIInteceptor.js" />
+    <Content Include="Scripts\Services\LoadingInterceptor.js" />
     <Content Include="Scripts\Services\LoginService.js" />
     <Content Include="Scripts\Services\UserService.js" />
     <Content Include="Templates\accessDenied.html" />
