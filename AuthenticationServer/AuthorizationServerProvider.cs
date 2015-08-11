@@ -31,18 +31,17 @@ namespace AuthenticationServer
                 var user = context.UserName;
                 var password = context.Password;
 
-                //Aplique sua lógica para autenticação
+                //Use your logic here to validate user
                 if(user != "renan" || password != "renan")
                 {
                     context.SetError("invalid_grant", "Usuário ou senha inválidos");
                     return;
                 }
 
-                //Adiciona o nome do usuário
+                //Add users name in identity
                 var identity = new ClaimsIdentity(context.Options.AuthenticationType);
                 identity.AddClaim(new Claim(ClaimTypes.Name, user));
 
-                //Exemplo de grupo de usuários.
                 var roles = new List<string>();
                 roles.Add("User");
 

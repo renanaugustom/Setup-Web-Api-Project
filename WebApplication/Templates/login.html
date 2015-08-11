@@ -1,0 +1,26 @@
+﻿<link href="../Content/login.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <div class="account-wall">
+                <div id="my-tab-content" class="tab-content">
+                    <div class="tab-pane active" id="login">
+                        <img class="profile-img" alt="Logo" src="Images/logo.png" />
+                        <form class="form-signin" ng-submit="doLogin(User)">
+                            <div class="row">
+                                <input type="text" class="form-control" placeholder="User" required autofocus ng-model="User.user">
+                            </div>
+                            <div class="row">
+                                <input type="password" class="form-control" placeholder="Password" required ng-model="User.password">
+                            </div>
+                            <div class="row">
+                                <input type="submit" class="btn btn-lg btn-primary btn-block" value="Enter" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

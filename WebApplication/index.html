@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <meta charset="UTF-8">
+    <title>My WebProject</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="IndexController as index" ng-cloak>
+
+    <nav class="navbar navbar-default" ng-if="index.currentUser && !onLoginScreen">
+        <ul class="nav navbar-nav navbar-right" style="margin-right:10px">
+            <li>
+                <button class="btn btn-default navbar-btn" ng-click="index.logout()">
+                    Logout <strong>{{index.currentUser.user}}</strong>
+                </button>
+            </li>
+        </ul>
+    </nav>
+    <div class="container-fluid">
+        <div>
+            <div class="row col-xs-offset-4 col-xs-4">
+                <div ng-repeat="al in alerts" class="alert alert-{{al.type}} fade in" style="margin-top:20px">
+                    {{al.msg}}
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                </div>
+            </div>
+            <div ui-view></div>
+        </div>
+    </div>
+
+    <!-- Libs -->
+    <script src="Scripts/Libs/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/Libs/bootstrap.min.js"></script>
+    <script src="Scripts/Libs/angular.min.js"></script>
+    <script src="Scripts/Libs/angular-storage.js"></script>
+    <script src="Scripts/Libs/angular-ui-router.min.js"></script>
+
+    <!-- Base -->
+    <script src="Scripts/Base/app.js"></script>
+    <script src="Scripts/Base/routes.js"></script>
+
+    <!-- Services -->
+    <script src="Scripts/Services/LoginService.js"></script>
+    <script src="Scripts/services/APIInteceptor.js"></script>
+    <script src="Scripts/services/AlertService.js"></script>
+    <script src="Scripts/services/UserService.js"></script>
+
+    <!-- Controllers -->
+    <script src="Scripts/Controllers/LoginController.js"></script>
+    <script src="Scripts/Controllers/IndexController.js"></script>
+    <script src="Scripts/Controllers/HomeController.js"></script>
+    <script src="Scripts/Controllers/AccessDeniedController.js"></script>
+</body>
+</html>

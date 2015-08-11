@@ -7,6 +7,7 @@ using System.Web.Http;
 
 namespace AuthenticationServer.Controllers
 {
+    [Route("User")]
     public class UserController : ApiController
     {
         [Authorize()]
