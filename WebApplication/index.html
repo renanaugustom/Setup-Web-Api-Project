@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>My WebProject</title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/custom.css" rel="stylesheet" />
 </head>
 
 <body ng-controller="IndexController as index" ng-cloak>
@@ -17,6 +18,11 @@
             </li>
         </ul>
     </nav>
+
+    <div id="loaderDiv" loader>
+        <img src="Images/load.gif" class="ajax-loader" />
+    </div>
+
     <div class="container-fluid">
         <div>
             <div class="row col-xs-offset-4 col-xs-4">
@@ -45,6 +51,10 @@
     <script src="Scripts/services/APIInteceptor.js"></script>
     <script src="Scripts/services/AlertService.js"></script>
     <script src="Scripts/services/UserService.js"></script>
+    <script src="Scripts/Services/LoadingInterceptor.js"></script>
+
+    <!-- Directives -->
+    <script src="Scripts/Directives/LoadingDirective.js"></script>
 
     <!-- Controllers -->
     <script src="Scripts/Controllers/LoginController.js"></script>
