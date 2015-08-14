@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AuthenticationServer
+namespace API
 {
     public class AuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
