@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace AuthenticationServer.Controllers
+namespace API.Controllers
 {
     [Route("User")]
     public class UserController : ApiController
