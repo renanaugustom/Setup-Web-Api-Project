@@ -42,7 +42,7 @@ namespace API
                 //var user = _userRepository.GetByNameAndPassword(userName, password);
 
                 //Use your logic here to validate user
-                if(userName != "renan" && password != "renan")
+                if(userName != "renan" || password != "renan")
                 {
                     context.SetError("invalid_grant", "Usuário ou senha inválidos");
                     return;
